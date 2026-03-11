@@ -62,35 +62,72 @@ function ProntuarioContent() {
         fêmea: "femea",
       }
       const sex = result.sex ? sexMap[result.sex.toLowerCase()] ?? prev.sex : prev.sex
+      
       return {
         ...prev,
         transcription: result.transcription,
         petName: result.petName || prev.petName,
         species,
+        breed: (result.breed || prev.breed),
+        color: (result.color || prev.color),
         age: result.age || prev.age,
-        colorRace: result.colorRace || prev.colorRace,
         sex,
         neutered: result.neutered ?? prev.neutered,
         weight: result.weight || prev.weight,
+        
+        // Tutor
         tutorName: result.tutorName || prev.tutorName,
         tutorPhone: result.tutorPhone || prev.tutorPhone,
         tutorCPF: result.tutorCPF || prev.tutorCPF,
+        
+        // Sinais vitais
+        vitalSigns: {
+          ...prev.vitalSigns,
+          temperature: result.temperature || prev.vitalSigns.temperature,
+          heartRate: result.heartRate || prev.vitalSigns.heartRate,
+          respiratoryRate: result.respiratoryRate || prev.vitalSigns.respiratoryRate,
+          capillaryRefillTime: result.capillaryRefillTime || prev.vitalSigns.capillaryRefillTime,
+          mucousMembrane: result.mucousMembrane || prev.vitalSigns.mucousMembrane,
+          hydration: result.hydration || prev.vitalSigns.hydration,
+          bodyCondition: result.bodyCondition || prev.vitalSigns.bodyCondition,
+        },
+        
+        // Sinais clínicos
+        clinicalSigns: result.clinicalSigns ? {
+          ...prev.clinicalSigns,
+          ...result.clinicalSigns,
+        } : prev.clinicalSigns,
+        
+        // Observações
+        chiefComplaint: result.chiefComplaint || prev.chiefComplaint,
+        anamnesis: result.anamnesis || prev.anamnesis,
+        clinicalObservations: result.clinicalObservations || prev.clinicalObservations,
+        
+        // Histórico médico
+        medicalHistory: {
+          ...prev.medicalHistory,
+          currentMedications: result.currentMedications || prev.medicalHistory.currentMedications,
+          previousIllnesses: result.previousIllnesses || prev.medicalHistory.previousIllnesses,
+          allergies: result.allergies || prev.medicalHistory.allergies,
+          diet: result.diet || prev.medicalHistory.diet,
+        },
+
+        // Serviços
+        bathServices: result.bathServices ? { ...prev.bathServices, ...result.bathServices } : prev.bathServices,
+        groomingServices: result.groomingServices ? { ...prev.groomingServices, ...result.groomingServices } : prev.groomingServices,
+        servicesNotes: result.servicesNotes || prev.servicesNotes,
+
+        // Itens
+        items: result.items ? { ...prev.items, ...result.items } : prev.items,
+
+        // Parasitas
+        parasites: result.parasites ? { ...prev.parasites, ...result.parasites } : prev.parasites,
+
+        // Lesões
+        lesions: result.lesions ? { ...prev.lesions, ...result.lesions } : prev.lesions,
+
+        // Análise
         analysisNotes: result.analysisNotes || prev.analysisNotes,
-        items: result.items
-          ? { ...prev.items, ...result.items }
-          : prev.items,
-        bathServices: result.bathServices
-          ? { ...prev.bathServices, ...result.bathServices }
-          : prev.bathServices,
-        groomingServices: result.groomingServices
-          ? { ...prev.groomingServices, ...result.groomingServices }
-          : prev.groomingServices,
-        parasites: result.parasites
-          ? { ...prev.parasites, ...result.parasites }
-          : prev.parasites,
-        lesions: result.lesions
-          ? { ...prev.lesions, ...result.lesions }
-          : prev.lesions,
         aiAnalysis: result.analysisNotes || prev.aiAnalysis,
       }
     })

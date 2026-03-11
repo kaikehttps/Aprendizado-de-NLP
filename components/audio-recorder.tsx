@@ -111,18 +111,44 @@ export function AudioRecorder({
         petName: data.petName,
         species: data.species,
         age: data.age,
-        colorRace: data.colorRace,
+        breed: data.breed || data.colorRace,
+        color: data.color,
         sex: data.sex,
         neutered: data.neutered,
         weight: data.weight,
-        items: data.items,
         tutorName: data.tutorName,
         tutorPhone: data.tutorPhone,
         tutorCPF: data.tutorCPF,
+        // Sinais vitais
+        temperature: data.temperature,
+        heartRate: data.heartRate,
+        respiratoryRate: data.respiratoryRate,
+        capillaryRefillTime: data.capillaryRefillTime,
+        mucousMembrane: data.mucousMembrane,
+        hydration: data.hydration,
+        bodyCondition: data.bodyCondition,
+        // Sinais clínicos
+        clinicalSigns: data.clinicalSigns,
+        // Observações
+        chiefComplaint: data.chiefComplaint,
+        anamnesis: data.anamnesis,
+        clinicalObservations: data.clinicalObservations,
+        // Histórico
+        currentMedications: data.currentMedications,
+        previousIllnesses: data.previousIllnesses,
+        allergies: data.allergies,
+        diet: data.diet,
+        // Análise
         analysisNotes: data.analysisNotes,
+        // Serviços
         bathServices: data.bathServices,
         groomingServices: data.groomingServices,
+        servicesNotes: data.servicesNotes,
+        // Itens
+        items: data.items,
+        // Parasitas
         parasites: data.parasites,
+        // Lesões
         lesions: data.lesions,
       })
       setStatus({ message: "Transcrição concluída com sucesso!", type: "success" })

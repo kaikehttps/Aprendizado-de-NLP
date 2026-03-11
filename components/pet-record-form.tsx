@@ -2,7 +2,6 @@
 
 import { RecordHeader } from "./record-header"
 import { PetInfoSection } from "./pet-info-section"
-import { ServicesSection } from "./services-section"
 import { AnalysisSection } from "./analysis-section"
 import { TutorSection } from "./tutor-section"
 import { useClinic } from "@/lib/clinic-context"
@@ -26,17 +25,14 @@ export function PetRecordForm({ record, onChange, readOnly = false }: PetRecordF
         professional={record.professional || config.doctorName}
       />
 
+      {/* Tutor Information */}
+      <TutorSection record={record} onChange={onChange} readOnly={readOnly} />
+
       {/* Pet Information */}
       <PetInfoSection record={record} onChange={onChange} readOnly={readOnly} />
 
-      {/* Services */}
-      <ServicesSection record={record} onChange={onChange} readOnly={readOnly} />
-
       {/* Analysis */}
       <AnalysisSection record={record} onChange={onChange} readOnly={readOnly} />
-
-      {/* Tutor */}
-      <TutorSection record={record} onChange={onChange} readOnly={readOnly} />
 
       {/* Footer */}
       <div className="bg-primary text-primary-foreground py-2 px-4 text-center text-xs rounded-b-lg">

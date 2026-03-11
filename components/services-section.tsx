@@ -12,6 +12,10 @@ interface ServicesSectionProps {
 }
 
 export function ServicesSection({ record, onChange, readOnly = false }: ServicesSectionProps) {
+  // Valores padrão para evitar undefined
+  const bathServices = record.bathServices || { padrao: false, hidratacao: false, selagem: false }
+  const groomingServices = record.groomingServices || { tesoura: false, maquina: false, higienica: false, tosaBebe: false, tosaDaRaca: false, desembolo: false }
+  
   return (
     <div className="border-b border-border">
       {/* Section Title */}
@@ -35,11 +39,13 @@ export function ServicesSection({ record, onChange, readOnly = false }: Services
                 <div key={key} className="flex items-center space-x-2">
                   <Checkbox
                     id={`bath-${key}`}
-                    checked={record.bathServices[key as keyof typeof record.bathServices]}
+                    checked={bathServices[key as keyof typeof bathServices]}
                     onCheckedChange={(checked) =>
                       onChange({
                         bathServices: {
-                          ...record.bathServices,
+                          padrao: bathServices.padrao,
+                          hidratacao: bathServices.hidratacao,
+                          selagem: bathServices.selagem,
                           [key]: checked === true,
                         },
                       })
@@ -76,12 +82,17 @@ export function ServicesSection({ record, onChange, readOnly = false }: Services
                   <Checkbox
                     id={`grooming-${key}`}
                     checked={
-                      record.groomingServices[key as keyof typeof record.groomingServices]
+                      groomingServices[key as keyof typeof groomingServices]
                     }
                     onCheckedChange={(checked) =>
                       onChange({
                         groomingServices: {
-                          ...record.groomingServices,
+                          tesoura: groomingServices.tesoura,
+                          maquina: groomingServices.maquina,
+                          higienica: groomingServices.higienica,
+                          tosaBebe: groomingServices.tosaBebe,
+                          tosaDaRaca: groomingServices.tosaDaRaca,
+                          desembolo: groomingServices.desembolo,
                           [key]: checked === true,
                         },
                       })

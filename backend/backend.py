@@ -20,8 +20,8 @@ try:
     MultiPartParser.max_part_size = 10 * 1024 * 1024  # 10MB
 except Exception:
     pass
-from fastapi.responses import JSONResponse
-from transformers import pipeline
+from fastapi.responses import JSONResponse 
+from transformers import pipeline #biblioteca
 import torch
 
 from static_ffmpeg import add_paths

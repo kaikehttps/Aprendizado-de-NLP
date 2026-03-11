@@ -13,28 +13,41 @@ interface TutorSectionProps {
 export function TutorSection({ record, onChange, readOnly = false }: TutorSectionProps) {
   return (
     <div className="p-4 space-y-4">
-      {/* Declaração */}
-      <div className="text-xs text-foreground/70 bg-muted p-3 rounded-lg border border-border">
-        <p className="text-justify leading-relaxed">
-          Assinando este documento, declaro que li e estou de acordo com as informações aqui
-          descritas e marcadas, bem como o resultado dos serviços solicitados e que recebi o
-          animal em perfeito estado e estou ciente das possíveis anormalidades presentes.
-        </p>
+      {/* Section Title */}
+      <div className="bg-primary text-primary-foreground py-2 px-4">
+        <h2 className="text-lg font-semibold text-center">Dados do Tutor</h2>
       </div>
 
-      {/* Nome e Assinatura */}
-      <div className="space-y-1">
-        <Label htmlFor="tutorName" className="text-xs font-semibold text-foreground/80">
-          Nome e Assinatura do Tutor
-        </Label>
-        <Input
-          id="tutorName"
-          value={record.tutorName}
-          onChange={(e) => onChange({ tutorName: e.target.value })}
-          placeholder=""
-          readOnly={readOnly}
-          className="border-primary/30 focus:border-primary"
-        />
+      {/* Nome e Contato */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="space-y-1">
+          <Label htmlFor="tutorName" className="text-xs font-semibold text-foreground/80">
+            Nome do Tutor
+          </Label>
+          <Input
+            id="tutorName"
+            value={record.tutorName}
+            onChange={(e) => onChange({ tutorName: e.target.value })}
+            placeholder="Nome completo"
+            readOnly={readOnly}
+            className="border-primary/30 focus:border-primary"
+          />
+        </div>
+        
+        <div className="space-y-1">
+          <Label htmlFor="tutorEmail" className="text-xs font-semibold text-foreground/80">
+            E-mail
+          </Label>
+          <Input
+            id="tutorEmail"
+            type="email"
+            value={record.tutorEmail || ""}
+            onChange={(e) => onChange({ tutorEmail: e.target.value })}
+            placeholder="email@exemplo.com"
+            readOnly={readOnly}
+            className="border-primary/30 focus:border-primary"
+          />
+        </div>
       </div>
 
       {/* Telefone e CPF */}
@@ -66,6 +79,44 @@ export function TutorSection({ record, onChange, readOnly = false }: TutorSectio
           />
         </div>
       </div>
+
+      {/* Endereço */}
+      <div className="space-y-1">
+        <Label htmlFor="tutorAddress" className="text-xs font-semibold text-foreground/80">
+          Endereço
+        </Label>
+        <Input
+          id="tutorAddress"
+          value={record.tutorAddress || ""}
+          onChange={(e) => onChange({ tutorAddress: e.target.value })}
+          placeholder="Rua, número, bairro, cidade"
+          readOnly={readOnly}
+          className="border-primary/30 focus:border-primary"
+        />
+      </div>
+
+      {/* Termo de Responsabilidade */}
+      <div className="text-xs text-foreground/70 bg-muted p-3 rounded-lg border border-border">
+        <p className="text-justify leading-relaxed">
+          Assinando este documento, declaro que li e estou de acordo com as informações aqui
+          descritas e marcadas, bem como o resultado dos serviços solicitados e que recebi o
+          animal em perfeito estado e estou ciente das possíveis anormalidades presentes.
+        </p>
+      </div>
+
+      {/* Assinatura */}
+      <div className="space-y-1">
+        <Label htmlFor="tutorSignature" className="text-xs font-semibold text-foreground/80">
+          Assinatura do Tutor
+        </Label>
+        <Input
+          id="tutorSignature"
+          placeholder="Assinatura"
+          readOnly={readOnly}
+          className="border-primary/30 focus:border-primary"
+        />
+      </div>
     </div>
   )
 }
+
