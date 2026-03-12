@@ -6,7 +6,7 @@ import './globals.css'
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: 'ApexVet - Prontuário Veterinário Inteligente',
+  title: 'Kronos - Prontuário Veterinário Inteligente',
   description: 'Sistema de prontuário veterinário com inteligência artificial para auxiliar médicos veterinários durante consultas',
   generator: 'v0.app',
   icons: {

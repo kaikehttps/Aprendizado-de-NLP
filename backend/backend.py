@@ -1,5 +1,5 @@
 """
-APEXVET - API de transcrição
+KRONOS - API de transcrição
 ============================
 Uso: python backend.py
 API: http://127.0.0.1:8000
@@ -31,7 +31,7 @@ add_paths()
 os.environ["PATH"] += os.path.dirname(os.path.realpath(__file__))
 
 # --- API ---
-app = FastAPI(title="ApexVet API")
+app = FastAPI(title="Kronos API")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -40,7 +40,7 @@ device = "cuda:0" if torch.cuda.is_available() else "cpu"
 print("⏳ Carregando...")
 transcritor = pipeline(
     "automatic-speech-recognition",
-    model="openai/whisper-small",
+    model="franciscombaa/whisper-small-pt",
     device=device,
     generate_kwargs={"language": "<|pt|>", "task": "transcribe"},
 )

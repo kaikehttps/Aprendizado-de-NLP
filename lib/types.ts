@@ -1,5 +1,5 @@
 /**
- * Tipos para o Prontuário Veterinário ApexVet
+ * Tipos para o Prontuário Veterinário Kronos
  * Modelo completo com sinais vitais, clínicos e sistema de diagnóstico
  */
 

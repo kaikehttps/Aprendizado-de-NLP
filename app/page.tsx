@@ -168,7 +168,7 @@ function ProntuarioContent() {
                 <Stethoscope className="h-6 w-6" />
               </div>
               <div>
-                <h1 className="text-xl font-bold tracking-tight">ApexVet</h1>
+                <h1 className="text-xl font-bold tracking-tight">Kronos</h1>
                 <p className="text-primary-foreground/80 text-sm">
                   Prontuário Inteligente com IA
                 </p>
@@ -250,7 +250,7 @@ function ProntuarioContent() {
       <footer className="bg-muted border-t border-border mt-8 no-print">
         <div className="container mx-auto px-4 py-4">
           <p className="text-center text-sm text-muted-foreground">
-            ApexVet © 2026 — Sistema de prontuário veterinário com inteligência artificial
+            Kronos © 2026 — Sistema de prontuário veterinário com inteligência artificial
           </p>
         </div>
       </footer>

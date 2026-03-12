@@ -17,7 +17,7 @@ interface ClinicContextType {
 }
 
 const defaultConfig: ClinicConfig = {
-  clinicName: "ApexVet Clínica Veterinária",
+  clinicName: "Kronos Clínica Veterinária",
   doctorName: "Dr. João Silva",
   doctorCRMV: "CRMV-SP 12345",
   logoUrl: null,
